@@ -16,6 +16,9 @@ After cloning repository:
 `strats.detect` is the only public method. It accepts a player `dict`, and a game summary `dict`. Both of these follow output format of [`aoc-mgz`](https://github.com/happyleavesaoc/aoc-mgz)'s `recorded_game.summarize` method. A minimal example is below.
 
 ```python
+import datetime
+import strats
+
 summary = {
     'map_size': {'x': 100, 'y': 100},
     'teams': [{'player_nums': [1, 6, 2]}, {'player_nums': [3, 5, 4]}],
