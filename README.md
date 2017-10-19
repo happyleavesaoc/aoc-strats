@@ -13,7 +13,7 @@ After cloning repository:
 
 ## Usage
 
-`strats.detect` is the only public method. It accepts a player `dict`, and a game summary `dict`. Both of these follow output format of [`aoc-mgz`](https://github.com/happyleavesaoc/aoc-mgz)'s `recorded_game.summarize` method. A minimal example is below.
+`strats.detect` is the only public method. It accepts a player index (`int`), and a game summary `dict`. Both of these follow output format of [`aoc-mgz`](https://github.com/happyleavesaoc/aoc-mgz)'s `recorded_game.summarize` method. A minimal example is below.
 
 ```python
 import datetime
