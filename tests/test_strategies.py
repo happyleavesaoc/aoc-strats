@@ -9,7 +9,7 @@ class TestStrategies(unittest.TestCase):
     def test_detect_drush(self):
         summary = {'players': [data.PLAYER_DRUSH]}
         summary.update(data.DEFAULT_SUMMARY)
-        self.assertEqual(strategies.detect_drush(data.PLAYER_DRUSH, summary), 0.9)
+        self.assertEqual(strategies.detect_drush(data.PLAYER_DRUSH, summary), 1.0)
 
     def test_detect_fast_castle(self):
         summary = {'players': [data.PLAYER_FAST_CASTLE]}
@@ -34,7 +34,7 @@ class TestStrategies(unittest.TestCase):
     def test_detect_maa(self):
         summary = {'players': [data.PLAYER_MAA]}
         summary.update(data.DEFAULT_SUMMARY)
-        self.assertEqual(strategies.detect_maa(data.PLAYER_MAA, summary), 0.95)
+        self.assertEqual(strategies.detect_maa(data.PLAYER_MAA, summary), 1.0)
 
     def test_detect_forward_ranges(self):
         summary = {'players': [data.PLAYER_FORWARD_RANGES, data.PLAYER_DRUSH]}

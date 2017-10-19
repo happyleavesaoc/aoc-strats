@@ -44,13 +44,13 @@ class TestUtil(unittest.TestCase):
         self.assertTrue(util.researched_before('Loom', datetime.time(0, 5, 0), player))
 
     def test_distance_to_any_enemy(self):
-        player = {'index': 1, 'coords': {'x': 0, 'y': 50}}
+        player = {'index': 1, 'number': 1, 'coordinates': {'x': 0, 'y': 50}}
         game = {
-            'teams': [{'player_nums': [1]}, {'player_nums': [2]}],
-            'map_size': {'x': 100, 'y': 100},
+            'diplomacy': {'teams': [{'player_numbers': [1]}, {'player_numbers': [2]}]},
+            'map': {'x': 100, 'y': 100},
             'players': [
                 player,
-                {'index': 2, 'coords': {'x': 0, 'y': 75}}
+                {'index': 2, 'number': 2, 'coordinates': {'x': 0, 'y': 75}}
             ]
         }
         self.assertEqual(util.distance_to_any_enemy({'x': 0, 'y': 0}, player, game), 0.75)
