@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/happyleavesaoc/aoc-strats.svg?branch=master)](https://travis-ci.org/happyleavesaoc/aoc-strats)
+
 # aoc-strats
 
 Prototype for detecting strategies used in Age of Empires 2 recorded games. At present, makes an attempt to detect various popular competitive play openings.
