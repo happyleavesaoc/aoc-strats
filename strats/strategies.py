@@ -28,13 +28,13 @@ def detect_drush(player, summary):
     if not feudal_time:
         return 0.0
     if rax_time >= min_rax_time and rax_time <= max_rax_time:
-        evidence['in_boundary'] = 30
+        evidence['in_boundary'] = 60
     if rax_time < feudal_time:
-        evidence['before_feudal'] = 30
-    queued = util.queued_before('Militia', datetime.time(0, 12, 0), summary)
+        evidence['before_feudal'] = 20
+    queued = util.queued_before('Militia', datetime.time(0, 10, 0), summary)
     if queued == 0:
         return 0.0
-    evidence['queued_militia'] = min(queued * 10, 40)
+    evidence['queued_militia'] = min(queued * 10, 20)
     return util.probability(evidence)
 
 
@@ -48,7 +48,7 @@ def detect_fast_castle(player, _):
     feudal_time = util.age_start('feudal', player)
     if not feudal_time or not castle_time:
         return 0.0
-    if util.time_delta(castle_time, feudal_time) < datetime.timedelta(minutes=2):
+    if util.time_delta(feudal_time, castle_time) < datetime.timedelta(minutes=2):
         evidence['age_proximity'] = 100
     return util.probability(evidence)
 
@@ -85,7 +85,7 @@ def detect_scrush(player, summary):
     early_feudal = util.time_add(feudal_time, datetime.timedelta(minutes=3))
     stables = util.built_before('Stable', early_feudal, player)
     evidence['in_boundary'] = min(len(stables) * 30, 70)
-    queued = util.queued_before('Scout', early_feudal, summary)
+    queued = util.queued_before('Scout Cavalry', early_feudal, summary)
     if queued == 0:
         return 0.0
     evidence['queued_scouts'] = min(queued * 10, 30)
@@ -112,7 +112,7 @@ def detect_trush(player, summary):
         evidence['is_korean'] = 10
     trush_towers = 0
     for tower in towers:
-        if util.distance_to_any_enemy(tower['coords'], player, summary) < 0.2:
+        if util.distance_to_any_enemy(tower['coordinates'], player, summary) < 0.2:
             trush_towers += 1
     evidence['near_enemy'] = min(trush_towers * 30, 80)
     return util.probability(evidence)
@@ -150,7 +150,7 @@ def detect_forward_ranges(player, summary):
     ranges = util.built_before('Archery Range', early_feudal, player)
     fwd_ranges = 0
     for building in ranges:
-        if util.distance_to_any_enemy(building['coords'], player, summary) < 0.5:
+        if util.distance_to_any_enemy(building['coordinates'], player, summary) < 0.5:
             fwd_ranges += 1
     if fwd_ranges:
         evidence['near_enemy'] = 100

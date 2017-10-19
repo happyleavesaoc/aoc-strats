@@ -20,23 +20,24 @@ import datetime
 import strats
 
 summary = {
-    'map_size': {'x': 100, 'y': 100},
-    'teams': [{'player_nums': [1, 6, 2]}, {'player_nums': [3, 5, 4]}],
+    'map': {'x': 100, 'y': 100},
+    'teams': [{'player_numbers': [1, 6, 2]}, {'player_numbers': [3, 5, 4]}],
     'queue': [
-        {'unit': 'Militia', 'timestamp': datetime.time(0, 7, 40)},
-        {'unit': 'Militia', 'timestamp': datetime.time(0, 8, 0)},
+        {'unit': 'Militia', 'timestamp': datetime.time(0, 7, 0)},
+        {'unit': 'Militia', 'timestamp': datetime.time(0, 7, 30)},
         {'unit': 'Militia', 'timestamp': datetime.time(0, 8, 0)}
     ],
     'players': [
         {
             'index': 1,
+            'number': 2,
             'civilization': 'Goths',
             'build': [
-                {'building': 'Barracks', 'timestamp': datetime.time(0, 7, 0), 'coords': {'x': 10, 'y': 10}}
+                {'building': 'Barracks', 'timestamp': datetime.time(0, 6, 40), 'coordinates': {'x': 10, 'y': 10}}
             ],
             'ages': {'feudal': datetime.time(0, 10, 0)},
             'research': [],
-            'coords': {'x': 100, 'y': 100}
+            'coordinates': {'x': 100, 'y': 100}
         }
     ]
 }

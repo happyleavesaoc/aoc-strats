@@ -50,14 +50,14 @@ def distance_to_any_enemy(coords, player, summary):
     """Find distance to nearest enemy from any point."""
     min_dist = 1.0
     enemies = []
-    for team in summary['teams']:
-        if player['index'] not in team['player_nums']:
-            enemies += team['player_nums']
+    for team in summary['diplomacy']['teams']:
+        if player['number'] not in team['player_numbers']:
+            enemies += team['player_numbers']
     for other in summary['players']:
-        if other['index'] not in enemies:
+        if other['number'] not in enemies:
             continue
-        dist = _distance(coords, other['coords'])
-        percent = dist / summary['map_size']['x']
+        dist = _distance(coords, other['coordinates'])
+        percent = dist / summary['map']['x']
         if percent < min_dist:
             min_dist = percent
     return min_dist
